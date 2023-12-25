@@ -1,0 +1,10 @@
+﻿Blazor Server Cookie Authentication Simplest Possible
+https://www.youtube.com/watch?v=OPpb2ijVN8g
+Blazor Server Admin Dashboard (Role based Authorization)
+https://www.youtube.com/watch?v=YxxmZhzHfVQ
+get claims 
+http://www.mattruma.com/adventures-with-blazor-accessing-claims-in-a-razor-page/
+Blazor Server HttpContext Accessing
+https://www.youtube.com/watch?v=EAo6WzaQ9Es
+Use cookie authentication without ASP.NET Core Identity
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-5.0

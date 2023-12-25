@@ -1,0 +1,47 @@
+﻿@page "/user"
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider 
+@attribute [Authorize]
+
+<h3>User Page </h3>
+<AuthorizeView Roles="admin">
+    <Authorized>
+        <div style="padding:10px; background-color: lightcoral">
+            <p>
+                Admin scetion only. <br />
+                user: @context.User.Identity.Name
+            </p>
+        </div>
+        
+    </Authorized>
+</AuthorizeView>
+
+
+<p> 
+    All users scetion <br />  
+    <b>User:</b> @name  <br />
+    <b>Role:</b> @role
+</p>
+
+
+<form action="/cookie/logout" method="post">
+    <input type="submit" value="logout" />
+</form>
+
+
+
+@code {
+    public string name;
+    public string role;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //Get Claim
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        name = user.FindFirst(c => c.Type == ClaimTypes.Name)?.Value;
+        role = user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value;
+    }
+}
